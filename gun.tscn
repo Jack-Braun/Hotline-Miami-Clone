@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk3wukhlwvhtd"]
+
+[ext_resource type="Script" path="res://gun.gd" id="1_h8q6m"]
+[ext_resource type="AudioStream" uid="uid://b53wsuijgk2w7" path="res://Sounds/8-bit-gunshot.wav" id="2_dwaa8"]
+[ext_resource type="AudioStream" uid="uid://b6j5j0nmn8wqt" path="res://Sounds/recharge_E_minor.wav" id="3_k3c0f"]
+[ext_resource type="AudioStream" uid="uid://bc4rq6as1xcgh" path="res://Sounds/empty-gun-shot-6209.mp3" id="4_maygw"]
+
+[node name="Gun" type="Sprite2D"]
+script = ExtResource("1_h8q6m")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dwaa8")
+
+[node name="Reload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k3c0f")
+
+[node name="OutOfAmmoClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_maygw")
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ReloadTime" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]

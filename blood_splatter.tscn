@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca2gbcq12tfo2"]
+
+[ext_resource type="Texture2D" uid="uid://mlu2nsksft57" path="res://GameArt/BloodSplatter.png" id="1_ybbnq"]
+[ext_resource type="Script" path="res://blood_splatter.gd" id="2_q6ktg"]
+[ext_resource type="AudioStream" uid="uid://wqjw0fwqt30j" path="res://Sounds/splattt-6295.mp3" id="3_cygnw"]
+
+[node name="BloodSplatter" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_ybbnq")
+script = ExtResource("2_q6ktg")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cygnw")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg15xpwug8fy0"]
+
+[ext_resource type="Texture2D" uid="uid://df8rq8u8b2lto" path="res://GameArt/BulletCasing.png" id="1_e20ak"]
+[ext_resource type="Script" path="res://shell_casing.gd" id="2_liimb"]
+
+[node name="ShellCasing" type="Sprite2D"]
+texture = ExtResource("1_e20ak")
+script = ExtResource("2_liimb")

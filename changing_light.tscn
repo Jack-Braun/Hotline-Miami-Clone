@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d11vrxkyu44l8"]
+
+[ext_resource type="Script" path="res://light_change.gd" id="1_v61ms"]
+
+[sub_resource type="Gradient" id="Gradient_c64ov"]
+colors = PackedColorArray(0.947878, 0, 0.211, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lbvy0"]
+gradient = SubResource("Gradient_c64ov")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Light" type="PointLight2D"]
+position = Vector2(80, 86)
+scale = Vector2(1, 1.01563)
+energy = 1.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_lbvy0")
+texture_scale = 5.0
+script = ExtResource("1_v61ms")

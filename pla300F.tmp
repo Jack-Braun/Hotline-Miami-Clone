@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8ymfmyhf1obb"]
+
+[ext_resource type="Texture2D" uid="uid://7fh17lsroref" path="res://GameArt/Circle.png" id="1_y1xjq"]
+[ext_resource type="Script" path="res://player.gd" id="1_yo4h3"]
+[ext_resource type="PackedScene" uid="uid://dk3wukhlwvhtd" path="res://gun.tscn" id="3_4kmlw"]
+[ext_resource type="Script" path="res://screen_shake_2d.gd" id="4_c55wj"]
+[ext_resource type="Material" uid="uid://cq4eg6yik4cyn" path="res://blood_particles.tres" id="4_r5cxp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mp0vi"]
+radius = 8.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iv01t"]
+noise_type = 3
+seed = 2
+frequency = 0.0566
+fractal_octaves = 2
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_yo4h3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y1xjq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_mp0vi")
+
+[node name="Gun" parent="." instance=ExtResource("3_4kmlw")]
+
+[node name="BloodParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 128
+process_material = ExtResource("4_r5cxp")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.75
+randomness = 0.4
+
+[node name="ScreenShake2D" type="Camera2D" parent="."]
+position_smoothing_speed = 3.0
+script = ExtResource("4_c55wj")
+max_offset = Vector2(8, 8)
+noise = SubResource("FastNoiseLite_iv01t")

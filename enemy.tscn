@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://diqd02h7gx3hj"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_0lbfk"]
+[ext_resource type="Texture2D" uid="uid://7fh17lsroref" path="res://GameArt/Circle.png" id="2_b1m6s"]
+[ext_resource type="Material" uid="uid://cq4eg6yik4cyn" path="res://blood_particles.tres" id="3_2giys"]
+[ext_resource type="PackedScene" uid="uid://dk3wukhlwvhtd" path="res://gun.tscn" id="3_a0dvq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mp0vi"]
+radius = 8.0
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+script = ExtResource("1_0lbfk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.869693, 0, 0.0533828, 1)
+texture = ExtResource("2_b1m6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_mp0vi")
+
+[node name="BloodParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 256
+process_material = ExtResource("3_2giys")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.75
+randomness = 0.4
+
+[node name="Gun" parent="." instance=ExtResource("3_a0dvq")]
