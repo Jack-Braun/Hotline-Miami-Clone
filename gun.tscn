@@ -1,12 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk3wukhlwvhtd"]
+[gd_scene load_steps=7 format=3 uid="uid://dk3wukhlwvhtd"]
 
 [ext_resource type="Script" path="res://gun.gd" id="1_h8q6m"]
+[ext_resource type="Texture2D" uid="uid://cvxvlyk6vxpoa" path="res://GameArt/glock.png" id="1_ol05v"]
 [ext_resource type="AudioStream" uid="uid://b53wsuijgk2w7" path="res://Sounds/8-bit-gunshot.wav" id="2_dwaa8"]
 [ext_resource type="AudioStream" uid="uid://b6j5j0nmn8wqt" path="res://Sounds/recharge_E_minor.wav" id="3_k3c0f"]
 [ext_resource type="AudioStream" uid="uid://bc4rq6as1xcgh" path="res://Sounds/empty-gun-shot-6209.mp3" id="4_maygw"]
 
-[node name="Gun" type="Sprite2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ennvy"]
+radius = 6.0
+
+[node name="Gun" type="CharacterBody2D"]
+show_behind_parent = true
+position = Vector2(4, 0)
+collision_layer = 4
 script = ExtResource("1_h8q6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ol05v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_ennvy")
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_dwaa8")

@@ -1,8 +1,9 @@
-class_name Gun extends Sprite2D
+class_name Gun extends CharacterBody2D
 
 const BULLET: PackedScene = preload("res://bullet.tscn")
 
-var data: GunData = Data.guns.uzi
+# gun is manually set here
+var data: GunData = Data.guns.glock
 var ammo: int = data.rounds
 var ammo_count: int = ammo * 3
 
@@ -36,6 +37,7 @@ func shoot() -> bool:
 	var inst: Bullet = BULLET.instantiate()
 	get_tree().current_scene.add_child(inst)
 	inst.start(global_position, direction)
+	inst.look_at(get_global_mouse_position())
 	
 	ammo -= 1
 	Events.ammo_updated.emit(ammo, ammo_count) 

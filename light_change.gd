@@ -1,7 +1,7 @@
 extends PointLight2D
 
 # Speed not in seconds, higher number = faster animation
-@export var color_speed: float = 7.0
+@export var color_speed: float = 5.0
 
 var time_passed: float = 0.0
 var gradient: Gradient

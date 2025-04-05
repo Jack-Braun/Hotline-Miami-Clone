@@ -23,4 +23,5 @@ func take_damage(damage: int) -> void:
 		#Blood particles
 		_blood_particles.restart()
 		await(_blood_particles.finished)
-		queue_free()
+		#queue_free()
+		

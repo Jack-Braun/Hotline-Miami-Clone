@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctousdg5va66a"
-path="res://.godot/imported/mauser c96.png-1d6a9a358ce366960bcc6dab4f08aa08.ctex"
+uid="uid://sfbjhof25kfc"
+path="res://.godot/imported/BasicEnemy.png-f758571ba3d906be0b19b88e9eea975f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameArt/guns/original sized/mauser c96.png"
-dest_files=["res://.godot/imported/mauser c96.png-1d6a9a358ce366960bcc6dab4f08aa08.ctex"]
+source_file="res://GameArt/BasicEnemy.png"
+dest_files=["res://.godot/imported/BasicEnemy.png-f758571ba3d906be0b19b88e9eea975f.ctex"]
 
 [params]
 

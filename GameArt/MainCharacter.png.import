@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dys6bckt7r8h6"
-path="res://.godot/imported/silenced a205.png-bae4c01e6bd0fa2a9c66e5343f8274f3.ctex"
+uid="uid://4umfuo03wd0w"
+path="res://.godot/imported/MainCharacter.png-9e49952699acd1ec4cdbdd851bbcb865.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameArt/guns/original sized/silenced a205.png"
-dest_files=["res://.godot/imported/silenced a205.png-bae4c01e6bd0fa2a9c66e5343f8274f3.ctex"]
+source_file="res://GameArt/MainCharacter.png"
+dest_files=["res://.godot/imported/MainCharacter.png-9e49952699acd1ec4cdbdd851bbcb865.ctex"]
 
 [params]
 

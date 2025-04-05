@@ -1,7 +1,7 @@
 class_name Bullet
 extends CharacterBody2D
 
-const SPEED: int = 300
+const SPEED: int = 250
 const DAMAGE: int = 1
 const SHELL_CASING: PackedScene = preload("res://shell_casing.tscn")
 
@@ -15,6 +15,9 @@ func _physics_process(_delta: float) -> void:
 		var collider: Object = collision.get_collider()
 		if collider is Actor: 
 			collider.take_damage(-DAMAGE)
+			collider.set_collision_layer_value(1, 0) 
+			collider.set_collision_layer_value(2, 0) 
+			collider._gun.set_collision_layer_value(1, 1)
 		queue_free()
 
 func start(start_pos: Vector2, direction: Vector2) -> void:

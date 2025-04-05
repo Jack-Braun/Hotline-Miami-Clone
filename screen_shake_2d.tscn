@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmgyteqjhi8w0"]
+
+[ext_resource type="Script" path="res://screen_shake_2d.gd" id="1_41rvb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iv01t"]
+noise_type = 3
+seed = 2
+frequency = 0.0566
+fractal_octaves = 2
+
+[node name="ScreenShake2D" type="Camera2D"]
+position_smoothing_enabled = true
+script = ExtResource("1_41rvb")
+max_offset = Vector2(8, 8)
+noise = SubResource("FastNoiseLite_iv01t")
