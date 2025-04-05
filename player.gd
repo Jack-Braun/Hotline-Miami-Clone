@@ -28,7 +28,7 @@ func _physics_process(_delta):
 	if collision: 
 		var collider: Object = collision.get_collider()
 		if collider is Gun: 
-			gun.ammo_count += 16
+			gun.ammo_count += gun.data.rounds
 			Events.ammo_updated.emit(gun.ammo, gun.ammo_count) 
 			collider.set_collision_layer_value(1, 0)
 			collider.hide()
