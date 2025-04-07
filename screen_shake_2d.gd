@@ -9,6 +9,7 @@ class_name ScreenShake2D extends Camera2D
 @export var max_offset := Vector2(100,75) #Maximum displacement in pixels.
 @export var max_roll := 0.1 #Maximum rotation in radians (use sparingly).
 @export var noise : FastNoiseLite
+@onready var death_text: Label = $DeathText
 
 var noise_y = 0 #Value used to move through the noise
 var trauma := 0.0 #Current shake strength
@@ -20,16 +21,18 @@ func _ready():
 	#noise.seed = randi()
 
 func _process(delta: float) -> void:
-	
-	global_position = Globals.player.global_position - (Globals.player.global_position - get_global_mouse_position()) * 0.15	
-	if trauma:
-		trauma = max(trauma - decay * delta, 0)
-		_shake()
-  #optional
-	elif offset.x != 0 or offset.y != 0 or rotation != 0:
-		lerp(offset.x,0.0,1)
-		lerp(offset.y,0.0,1)
-		lerp(rotation,0.0,1)
+	if !Globals.player.dead: 
+		global_position = Globals.player.global_position - (Globals.player.global_position - get_global_mouse_position()) * 0.30	
+		if trauma:
+			trauma = max(trauma - decay * delta, 0)
+			_shake()
+	  #optional
+		elif offset.x != 0 or offset.y != 0 or rotation != 0:
+			lerp(offset.x,0.0,1)
+			lerp(offset.y,0.0,1)
+			lerp(rotation,0.0,1)
+	else:
+		death_text.show()
 
 func _shake() -> void: 
 	var amt = pow(trauma, trauma_pwr)

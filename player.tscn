@@ -11,6 +11,7 @@ height = 4.5
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 9
 script = ExtResource("1_yo4h3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -23,7 +24,6 @@ shape = SubResource("CapsuleShape2D_18b7l")
 
 [node name="Gun" parent="." instance=ExtResource("3_4kmlw")]
 position = Vector2(5, -2)
-collision_layer = 0
 
 [node name="BloodParticles" type="GPUParticles2D" parent="."]
 emitting = false

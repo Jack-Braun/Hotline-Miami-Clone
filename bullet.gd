@@ -1,30 +1,31 @@
-class_name Bullet
-extends CharacterBody2D
+class_name Bullet extends CharacterBody2D
 
-const SPEED: int = 250
-const DAMAGE: int = 1
-const SHELL_CASING: PackedScene = preload("res://shell_casing.tscn")
+var speed: int = 225
+var damage: int = 1
+var player_bullet: bool = true
+const SHELL_CASING := preload("res://shell_casing.tscn")
+
+func _ready() -> void:
+	if not player_bullet:
+		set_collision_mask_value(2, false)
+		set_collision_mask_value(4, true)
 
 func _physics_process(_delta: float) -> void:
-	velocity 
-
 	move_and_slide()
-	
-	var collision: KinematicCollision2D = get_last_slide_collision()
-	if collision: 
-		var collider: Object = collision.get_collider()
-		if collider is Actor: 
-			collider.take_damage(-DAMAGE)
-			collider.set_collision_layer_value(1, 0) 
-			collider.set_collision_layer_value(2, 0) 
-			collider._gun.set_collision_layer_value(1, 1)
+
+	var collision := get_last_slide_collision()
+	if collision:
+		var collider := collision.get_collider()
+		if collider is Enemy or collider is Player:
+			collider.take_damage(-damage)
+			collider.dead = true
 		queue_free()
 
 func start(start_pos: Vector2, direction: Vector2) -> void:
 	global_position = start_pos
-	velocity = direction * SPEED
+	velocity = direction * speed
 
 	#Casings
 	var inst: Node = SHELL_CASING.instantiate()
 	inst.start(start_pos)
-	get_tree().current_scene.add_child(inst)
+	get_tree().root.get_child(0).add_child(inst)

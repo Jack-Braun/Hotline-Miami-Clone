@@ -74,22 +74,32 @@ texture = SubResource("GradientTexture2D_inlnh")
 script = null
 
 [node name="Player" parent="." instance=ExtResource("1_pu756")]
-position = Vector2(154, 82)
+position = Vector2(51, 82)
 
 [node name="ScreenShake2D" parent="." instance=ExtResource("1_lrhgv")]
 position = Vector2(-154, -82)
+
+[node name="DeathText" type="Label" parent="ScreenShake2D"]
+visible = false
+modulate = Color(0.904497, 0, 0.22061, 1)
+offset_left = -39.0
+offset_top = -11.0
+offset_right = 37.0
+offset_bottom = 12.0
+text = "YOU DIED"
+horizontal_alignment = 1
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(152, 163)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("2_m6vfu")]
-position = Vector2(-49, -111)
+position = Vector2(34, -110)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("2_m6vfu")]
 position = Vector2(109, -114)
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("2_m6vfu")]
-position = Vector2(-100, -57)
+position = Vector2(12, -45)
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("2_m6vfu")]
 position = Vector2(63, -32)
