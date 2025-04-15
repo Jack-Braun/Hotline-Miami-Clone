@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc4e7wo3gk7im"]
+[gd_scene load_steps=10 format=3 uid="uid://bc4e7wo3gk7im"]
 
 [ext_resource type="PackedScene" uid="uid://dmgyteqjhi8w0" path="res://screen_shake_2d.tscn" id="1_lrhgv"]
 [ext_resource type="TileSet" uid="uid://dpj5dua346bpx" path="res://environment.tres" id="1_m7mc1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d11vrxkyu44l8" path="res://changing_light.tscn" id="2_gyb5w"]
 [ext_resource type="PackedScene" uid="uid://diqd02h7gx3hj" path="res://enemy.tscn" id="2_m6vfu"]
 [ext_resource type="Script" path="res://ammo_count.gd" id="3_hui0n"]
+[ext_resource type="Script" path="res://gun_name.gd" id="6_dfgtf"]
 
 [sub_resource type="Gradient" id="Gradient_nu77m"]
 offsets = PackedFloat32Array(0.388889, 1)
@@ -86,7 +87,8 @@ offset_left = -39.0
 offset_top = -11.0
 offset_right = 37.0
 offset_bottom = 12.0
-text = "YOU DIED"
+text = "YOU DIED
+'R' to restart"
 horizontal_alignment = 1
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -147,7 +149,6 @@ position = Vector2(543, 56)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.02
 anchor_top = 0.02
 anchor_right = 0.98
 anchor_bottom = 0.98
@@ -156,6 +157,14 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+
+[node name="GunName" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Glock"
+horizontal_alignment = 2
+script = ExtResource("6_dfgtf")
 
 [node name="AmmoCount" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
